@@ -1,0 +1,31 @@
+mainnet 
+server {
+        listen 80;
+        listen [::]:80;
+
+        root /var/www/mainnet/html;
+        index index.html;
+
+        server_name mainnet.socialminds.jp;
+
+        location ^~ /.acme {
+                alias /var/www/rinkeby/html/.acme;
+        }
+
+        location / {
+                proxy_pass http://localhost:18545;
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                # try_files $uri $uri/ =404;
+        }
+
+
+
+    listen [::]:443 ssl; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/mainnet.socialminds.jp/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/mainnet.socialminds.jp/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}

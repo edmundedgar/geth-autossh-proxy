@@ -1,0 +1,12 @@
+[Unit]
+Description=AutoSSH tunnel service to create a persistent tunnel for our mainnet geth
+After=network.target
+
+[Service]
+User=ethnode
+Type=simple
+Environment="AUTOSSH_GATETIME=0"
+ExecStart=/usr/bin/autossh -N -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -o "PubkeyAuthentication=yes" -o "PasswordAuthentication=no" -i /home/ethnode/.ssh/id_rsa -R 18545:localhost:8545 ethnode@mainnet.socialminds.jp
+
+[Install]
+WantedBy=multi-user.target

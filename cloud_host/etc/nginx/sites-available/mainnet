@@ -9,7 +9,7 @@ server {
         server_name mainnet.socialminds.jp;
 
         location ^~ /.acme {
-                alias /var/www/rinkeby/html/.acme;
+                alias /var/www/mainnet/html/.acme;
         }
 
         location / {

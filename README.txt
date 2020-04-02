@@ -37,6 +37,7 @@ sudo apt-get install nginx
 
 3) Copy cloud_host/etc/nginx/sites-available/mainnet to the same location on the cloud host. Delete the SSL stuff. Then:
 
+# sudo ln -s /etc/nginx/sites-available/mainnet /etc/nginx/sites-enabled/
 # sudo nginx -t
 # sudo systemctl restart nginx
 

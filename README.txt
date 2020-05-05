@@ -15,7 +15,7 @@ Motivation:
 * We don't like all the nodes to be on cloud hosts because decentralization.
 * We have bandwidth to spare at home.
 * We don't have a static IP at home.
-* We don't really want to expose the home IP to the world via our dapp as cybercoin enthusiasts sometimes play silly DoS games.
+* We don't really want to expose the home IP to the world via our dapp as cybercoin enthusiasts sometimes play silly DoS games. (Although you can probably get it without trying very hard.)
 
 
 A) The cloud host
@@ -47,11 +47,8 @@ sudo apt-get install nginx
 # sudo certbot -d mainnet.socialminds.jp
 [repeat for other hosts]
 
-6) Make a user, we'll call it ethnode.
-# sudo adduser ethnode
 
-
-B) The local box, should have SSH > 150GB and HDD > 150GB (this will grow over time)
+B) The local box, should have SSD > 150GB and HDD > 150GB (this will grow over time)
 
 1) Make a user, also called ethnode.
 # sudo adduser ethnode
